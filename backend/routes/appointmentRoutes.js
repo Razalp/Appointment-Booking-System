@@ -75,12 +75,15 @@ router.post('/book', async (req, res) => {
       return res.status(400).json({ error: 'This slot is already booked' });
     }
 
+
+
     const newAppointment = new Appointment({
       name,
       phone,
       date: appointmentDate,
       timeSlot,
     });
+    console.log(newAppointment)
 
     await newAppointment.save();
     res.status(201).json({ message: 'Appointment booked successfully' });
